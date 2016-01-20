@@ -1,6 +1,6 @@
 console.log("Kyle is my best friend who likes pushing me to be a better coder");
 
-var numWordsUsedThisGame = 25;
+var NUM_WORDS_USED_THIS_GAME = 25;
 
 //should scale based on game size??
 var CardAssignments = function() {
@@ -12,7 +12,7 @@ var CardAssignments = function() {
   this.assassin = { wordNum: 1, color: "black", assigned: 0 };
 };
 
-$.getJSON( "../src/assets/word_lists/original.json", function(data) {
+$.getJSON("assets/word_lists/original.json", function(data) {
 
   function findWordsUsedThisGame(wordBank, gameSize) {
     var usedWordIndices = [];
@@ -29,7 +29,7 @@ $.getJSON( "../src/assets/word_lists/original.json", function(data) {
     return wordList;
   }
 
-  var wordsInGame = findWordsUsedThisGame(data.words, numWordsUsedThisGame);
+  var wordsInGame = findWordsUsedThisGame(data.words, NUM_WORDS_USED_THIS_GAME);
 
   var $wordGrid = $(".gameBoard .wordGrid");
 
@@ -42,7 +42,7 @@ $.getJSON( "../src/assets/word_lists/original.json", function(data) {
   });
 
   $wordGrid.addClass('expand');
-  assignColors(numWordsUsedThisGame);
+  assignColors(NUM_WORDS_USED_THIS_GAME);
 });
 
 function assignColors(gameSize) {
