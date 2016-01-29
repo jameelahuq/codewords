@@ -1,4 +1,4 @@
-console.log("Kyle is my best friend who likes pushing me to be a better coder");
+console.log("Kyle is kinda ok but really he's kind of a butt");
 
 var NUM_WORDS_USED_THIS_GAME = 25;
 
@@ -11,6 +11,7 @@ var CardAssignments = function() {
   this.bystander = { wordNum: 7, color: "white", assigned: 0 };
   this.assassin = { wordNum: 1, color: "black", assigned: 0 };
 };
+
 
 $.getJSON("assets/word_lists/original.json", function(data) {
 
@@ -37,6 +38,7 @@ $.getJSON("assets/word_lists/original.json", function(data) {
 
     $('<li/>', {
       id: "codeWord_" + index,
+      class: 'facedown cw',
       text: word
     }).appendTo($wordGrid);
   });
@@ -46,7 +48,7 @@ $.getJSON("assets/word_lists/original.json", function(data) {
 });
 
 function assignColors(gameSize) {
-  var theseCards = new CardAssignments;
+  var theseCards = new CardAssignments();
   console.log(theseCards);
   var assignmentDone = [];
 
@@ -69,51 +71,37 @@ function assignColors(gameSize) {
     }
   }
 
+  $('.switchTurns').on('click', greenOnOrOff);
+  $('.cw.facedown').on('click', flipCard);
 
   //assign all the numbers to a color
   //add the class of each color to each number
+
+
+}
+
+function greenOnOrOff () {
+  $('.cw').toggleClass('facedown');
+}
+
+function flipCard() {
+  var $this = $(this);
+  console.log($this);
+  $this.removeClass('cw facedown');
+  $this.addClass('chosen');
+  $this.off('click', flipCard);
 }
 
 
-//<table class="gameBoard">
-//    <CAPTION>Code Words</CAPTION>
+
+
+
+//function toggle(buttonObj) {
 //
-//<TR>
-//<TD> Marcia </TD>
-//<TD> Carol </TD>
-//<TD> Greg </TD>
-//<TD> Alice </TD>
-//<TD> Peter </TD>
-//</TR>
+//  var button = document.getElementById(buttonObj);
 //
-//<TR>
-//<TD> Ice </TD>
-//<TD> Alice </TD>
-//<TD> Peter </TD>
-//<TD> Alice </TD>
-//<TD> Peter </TD>
-//</TR>
+//  el.style.display = (el.style.display != 'none' ? 'none' : '' );
 //
-//<TR>
-//<TD> Buggaloo </TD>
-//<TD> Mike </TD>
-//<TD>Bobby </TD>
-//<TD> Alice </TD>
-//<TD> Peter </TD>
-//</TR>
+//}
 //
-//<TR>
-//<TD> Turpentine </TD>
-//<TD> Mike </TD>
-//<TD>Bobby </TD>
-//<TD> Alice </TD>
-//<TD> Shakespeare </TD>
-//</TR>
-//
-//<TR>
-//<TD> Assholes </TD>
-//<TD> Mike </TD>
-//<TD>Bobby </TD>
-//<TD> Alice </TD>
-//<TD> Peter </TD>
-//</TR>
+//"toggle", myScript);

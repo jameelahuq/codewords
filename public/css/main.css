@@ -94,7 +94,6 @@ textarea {
 
 body {
   background-color: black;
-  color: #5fd44c;
   font-family: digital;
 
 }
@@ -102,6 +101,22 @@ body {
 h1 {
   font-size: 50px;
   text-align: center;
+  color: #5fd44c;
+}
+
+button.switchTurns {
+  text-align: center;
+  display: block;
+  margin: auto;
+  background-color: transparent;
+  border: none;
+}
+
+button:focus {
+  outline-color: #5fd44c;
+  outline-style: solid;
+  outline-width: thin;
+  -moz-outline-radius: 5px;
 }
 
 .wordGrid {
@@ -121,6 +136,7 @@ h1 {
   box-sizing: border-box;
   display: inline-block;
   font-size: 30px;
+
   /*make these button so I don't have to fudge this'*/
   width: 18%;
   text-align: center;
@@ -133,7 +149,6 @@ h1 {
   border-color: #5fd44c;
 }
 
-
 .gameBoard {
   width: 80%;
   margin-left: auto;
@@ -142,6 +157,11 @@ h1 {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%)
+}
+
+.cw.facedown {
+  color: #5fd44c;
+  background-color: black;
 }
 
 .cardType_red {
@@ -164,6 +184,27 @@ h1 {
   color: rgb(95, 212, 51);
   /*background-color: rgba(95, 212, 51, .2);*/
 }
+
+.cardType_red.chosen {
+  background-color: rgba(255, 51, 51, .2);
+  /*color: black;*/
+}
+
+.cardType_blue.chosen {
+  background-color: rgba(0, 255, 255, .25);
+}
+
+.cardType_assassin.chosen{
+  background-color: rgba(255, 255, 255, .2);
+}
+
+.cardType_bystander.chosen {
+  background-color: rgba(95, 212, 51, .2);
+}
+
+
+
+
 
 
 
