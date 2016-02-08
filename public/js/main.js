@@ -32,7 +32,7 @@ $.getJSON("assets/word_lists/original.json", function(data) {
 
   var wordsInGame = findWordsUsedThisGame(data.words, NUM_WORDS_USED_THIS_GAME);
 
-  var $wordGrid = $(".gameBoard .wordGrid");
+  var $wordGrid = $(".wordGrid");
 
   wordsInGame.forEach(function(word, index) {
 

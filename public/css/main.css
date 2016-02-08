@@ -8,12 +8,6 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-html {
-    color: #222;
-    font-size: 1em;
-    line-height: 1.4;
-}
-
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -95,20 +89,18 @@ textarea {
 body {
   background-color: black;
   font-family: digital;
-
+  width: 100%;
 }
 
-h1 {
-  font-size: 3vw;
-  text-align: center;
-  margin: 0;
-  color: #5fd44c;
+header {
+  padding: 5px;
 }
 
 button.switchTurns {
-  text-align: center;
+  height: 40px;
+  margin: 0 auto;
+  line-height: 0;
   display: block;
-  margin: auto;
   background-color: transparent;
   border: none;
 }
@@ -120,14 +112,11 @@ button:focus {
   -moz-outline-radius: 5px;
 }
 
-.gameBoard {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%)
+h1 {
+  font-size: 3.5vw;
+  text-align: center;
+  margin: 0;
+  color: #5fd44c;
 }
 
 .wordGrid {
@@ -137,7 +126,13 @@ button:focus {
 }
 
 .wordGrid.expand {
-  height: 320px;
+  position: absolute;
+  display: flex;
+  flex-flow: row wrap;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  right: 0;
   opacity: 1;
   transition: height 0.5s ease-out, opacity 0.5s ease-out;
 }
@@ -146,7 +141,7 @@ button:focus {
   padding: .5%;
   box-sizing: border-box;
   display: inline-block;
-  font-size: 2vw;
+  font-size: 3vw;
 
   /*make these button so I don't have to fudge this'*/
   width: 18%;
