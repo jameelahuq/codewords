@@ -99,8 +99,9 @@ body {
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 3vw;
   text-align: center;
+  margin: 0;
   color: #5fd44c;
 }
 
@@ -119,6 +120,16 @@ button:focus {
   -moz-outline-radius: 5px;
 }
 
+.gameBoard {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
 .wordGrid {
   padding: 0;
   height: 0;
@@ -132,10 +143,10 @@ button:focus {
 }
 
 .wordGrid li {
-  padding: 10px;
+  padding: .5%;
   box-sizing: border-box;
   display: inline-block;
-  font-size: 30px;
+  font-size: 2vw;
 
   /*make these button so I don't have to fudge this'*/
   width: 18%;
@@ -149,29 +160,16 @@ button:focus {
   border-color: #5fd44c;
 }
 
-.gameBoard {
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%)
-}
-
 .cw.facedown {
   color: #5fd44c;
   background-color: black;
 }
 
 .cardType_red {
-  /*background-color: rgba(255, 51, 51, .2);*/
   color: rgba(255, 51, 51, 1);
-  /*color: black;*/
 }
 
 .cardType_blue {
-  /*background-color: rgba(0, 255, 255, .25);*/
   color: cyan;
 }
 
@@ -201,6 +199,8 @@ button:focus {
 .cardType_bystander.chosen {
   background-color: rgba(95, 212, 51, .2);
 }
+
+
 
 
 
