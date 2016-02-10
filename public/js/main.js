@@ -4,10 +4,10 @@ var NUM_WORDS_USED_THIS_GAME = 25;
 
 //should scale based on game size??
 var CardAssignments = function() {
-  var firstPlayerRed = Math.floor(Math.random() * 2);
+  var firstPlayerOne = Math.floor(Math.random() * 2);
 
-  this.red = { wordNum: firstPlayerRed ? 9 : 8, color: "red", assigned: 0 };
-  this.blue = { wordNum: firstPlayerRed ? 8 : 9, color: "cyan", assigned: 0 };
+  this.player_one = { wordNum: firstPlayerOne ? 9 : 8, color: "one", assigned: 0 };
+  this.player_two = { wordNum: firstPlayerOne ? 8 : 9, color: "two", assigned: 0 };
   this.bystander = { wordNum: 7, color: "white", assigned: 0 };
   this.assassin = { wordNum: 1, color: "black", assigned: 0 };
 };
@@ -73,6 +73,7 @@ function assignColors(gameSize) {
 
   //+++++++++++MODE SELECTION+++++++++++++++
   var $nameBar = $('.switchTurns');
+  var spyMasterOn = false;
   var toggleTurnTimer;
 
   $nameBar.on('mousedown', startModeChangeTimer);
@@ -91,6 +92,7 @@ function assignColors(gameSize) {
 
   function greenOnOrOff () {
     $('.cw').toggleClass('facedown');
+    spyMasterOn = !spyMasterOn;
     clearInterval(toggleTurnTimer);
   }
 
@@ -108,11 +110,13 @@ function assignColors(gameSize) {
     var $this = $(this);
 
     function flipCard() {
-      $this.removeClass('cw facedown');
-      $this.addClass('chosen');
-      $this.off('mousedown', startCardSelectorTimer);
-      $this.off('mouseup', stopCardSelectorTimer);
-      clearInterval(selectCardTimer);
+      if (!spyMasterOn) {
+        $this.removeClass('cw facedown');
+        $this.addClass('chosen');
+        $this.off('mousedown', startCardSelectorTimer);
+        $this.off('mouseup', stopCardSelectorTimer);
+        clearInterval(selectCardTimer);
+      }
     }
 
     selectCardTimer = setInterval(flipCard, 500);

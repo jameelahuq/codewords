@@ -178,14 +178,15 @@ h1 {
   color: rgba(255, 51, 51, 1);
 }
 
-.cardType_blue {
-  color: cyan;
-}
 
-.cardType_red {
+.cardType_player_one{
   /*background-color: rgba(255, 255, 255, .2);*/
   /*color: rgba(255, 255, 255, 1);*/
   color: yellow;
+}
+
+.cardType_player_two {
+  color: cyan;
 }
 
 .cardType_bystander {
@@ -193,12 +194,13 @@ h1 {
   /*background-color: rgba(95, 212, 51, .2);*/
 }
 
-.cardType_red.chosen {
-  background-color: rgba(255, 51, 51, .2);
+.cardType_player_one.chosen {
+  /*background-color: rgba(255, 51, 51, .2);*/
+  background-color: rgba(255, 255, 0, .2)
   /*color: black;*/
 }
 
-.cardType_blue.chosen {
+.cardType_player_two.chosen {
   background-color: rgba(0, 255, 255, .25);
 }
 
