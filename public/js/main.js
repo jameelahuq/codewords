@@ -72,27 +72,48 @@ function assignColors(gameSize) {
   }
 
   $('.switchTurns').on('click', greenOnOrOff);
-  $('.cw.facedown').on('click', flipCard);
+
+  var $cards = $('.cw.facedown');
+
+  $cards.on('mousedown', startCardSelectorTimer);
 
   //assign all the numbers to a color
-  //add the class of each color to each number
+  $cards.on('mouseup', stopCardSelectorTimer);
 
+  //add the class of each color to each number
+}
+
+var turnOverTimer;
+
+function startCardSelectorTimer() {
+  console.log("mouse down");
+  var $this = $(this);
+
+  function flipCard() {
+    console.log("flipCards");
+    $this.removeClass('cw facedown');
+    $this.addClass('chosen');
+    $this.off('mousedown', startCardSelectorTimer);
+    $this.off('mouseup', stopCardSelectorTimer);
+    clearInterval(turnOverTimer);
+  }
+
+
+  turnOverTimer = setInterval(flipCard, 500);
+  //call flipCard after 5 seconds
 
 }
+
+
+function stopCardSelectorTimer() {
+  console.log("mouse up");
+  clearInterval(turnOverTimer);
+}
+
 
 function greenOnOrOff () {
   $('.cw').toggleClass('facedown');
 }
-
-function flipCard() {
-  var $this = $(this);
-  console.log($this);
-  $this.removeClass('cw facedown');
-  $this.addClass('chosen');
-  $this.off('click', flipCard);
-}
-
-
 
 
 

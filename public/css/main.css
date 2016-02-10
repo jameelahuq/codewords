@@ -98,7 +98,7 @@ header {
 }
 
 button.switchTurns {
-  height: 40px;
+  height: 3.5vw;
   margin: 0 auto;
   line-height: 0;
   display: block;
@@ -116,7 +116,6 @@ button:focus {
 
 h1 {
   font-size: 3.5vw;
-  height: 10%;
   text-align: center;
   margin: 0;
   color: #5fd44c;
