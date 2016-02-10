@@ -71,48 +71,57 @@ function assignColors(gameSize) {
     }
   }
 
-  $('.switchTurns').on('click', greenOnOrOff);
+  //+++++++++++MODE SELECTION+++++++++++++++
+  var $nameBar = $('.switchTurns');
+  var toggleTurnTimer;
 
-  var $cards = $('.cw.facedown');
+  $nameBar.on('mousedown', startModeChangeTimer);
+  $nameBar.on('mouseup', stopModeChangeTimer);
 
-  $cards.on('mousedown', startCardSelectorTimer);
 
-  //assign all the numbers to a color
-  $cards.on('mouseup', stopCardSelectorTimer);
 
-  //add the class of each color to each number
-}
+  function startModeChangeTimer() {
+    toggleTurnTimer = setInterval(greenOnOrOff, 500);
+  }
 
-var turnOverTimer;
-
-function startCardSelectorTimer() {
-  console.log("mouse down");
-  var $this = $(this);
-
-  function flipCard() {
-    console.log("flipCards");
-    $this.removeClass('cw facedown');
-    $this.addClass('chosen');
-    $this.off('mousedown', startCardSelectorTimer);
-    $this.off('mouseup', stopCardSelectorTimer);
-    clearInterval(turnOverTimer);
+  function stopModeChangeTimer() {
+    clearInterval(toggleTurnTimer);
   }
 
 
-  turnOverTimer = setInterval(flipCard, 500);
-  //call flipCard after 5 seconds
-
-}
-
-
-function stopCardSelectorTimer() {
-  console.log("mouse up");
-  clearInterval(turnOverTimer);
-}
+  function greenOnOrOff () {
+    $('.cw').toggleClass('facedown')
+  }
 
 
-function greenOnOrOff () {
-  $('.cw').toggleClass('facedown');
+
+  //+++++++++++CARD SELECTION+++++++++++++++++//
+  var $cards = $('.cw.facedown');
+  var selectCardTimer;
+
+  $cards.on('mousedown', startCardSelectorTimer);
+  $cards.on('mouseup', stopCardSelectorTimer);
+
+
+  function startCardSelectorTimer() {
+    var $this = $(this);
+
+    function flipCard() {
+      $this.removeClass('cw facedown');
+      $this.addClass('chosen');
+      $this.off('mousedown', startCardSelectorTimer);
+      $this.off('mouseup', stopCardSelectorTimer);
+      clearInterval(selectCardTimer);
+    }
+
+    selectCardTimer = setInterval(flipCard, 500);
+  }
+
+
+  function stopCardSelectorTimer() {
+    clearInterval(selectCardTimer);
+  }
+
 }
 
 
