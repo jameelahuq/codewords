@@ -81,7 +81,7 @@ function assignColors(gameSize) {
 
 
   function startModeChangeTimer() {
-    toggleTurnTimer = setInterval(greenOnOrOff, 500);
+    toggleTurnTimer = setInterval(greenOnOrOff, 400);
   }
 
   function stopModeChangeTimer() {
