@@ -90,7 +90,8 @@ function assignColors(gameSize) {
 
 
   function greenOnOrOff () {
-    $('.cw').toggleClass('facedown')
+    $('.cw').toggleClass('facedown');
+    clearInterval(toggleTurnTimer);
   }
 
 
