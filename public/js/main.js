@@ -117,8 +117,8 @@ function assignColors(gameSize) {
   var spyMasterOn = false;
   var toggleTurnTimer;
 
-  $nameBar.on('mousedown', startModeChangeTimer);
-  $nameBar.on('mouseup', stopModeChangeTimer);
+  $nameBar.on('mousedown touchstart', startModeChangeTimer);
+  $nameBar.on('mouseup touchend', stopModeChangeTimer);
 
 
 
@@ -143,8 +143,8 @@ function assignColors(gameSize) {
   var $cards = $('.cw.facedown');
   var selectCardTimer;
 
-  $cards.on('mousedown', startCardSelectorTimer);
-  $cards.on('mouseup', stopCardSelectorTimer);
+  $cards.on('mousedown touchstart', startCardSelectorTimer);
+  $cards.on('mouseup touchend', stopCardSelectorTimer);
 
 
   function startCardSelectorTimer() {
@@ -154,8 +154,8 @@ function assignColors(gameSize) {
       if (!spyMasterOn) {
         $this.removeClass('cw facedown');
         $this.addClass('chosen');
-        $this.off('mousedown', startCardSelectorTimer);
-        $this.off('mouseup', stopCardSelectorTimer);
+        $this.off('mousedown touchstart', startCardSelectorTimer);
+        $this.off('mouseup touchend', stopCardSelectorTimer);
         clearInterval(selectCardTimer);
       }
     }
