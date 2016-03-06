@@ -1,6 +1,49 @@
 console.log("Kyle is kinda ok but really he's kind of a butt");
 
+//-----------Game Parameters ----------//
 var NUM_WORDS_USED_THIS_GAME = 25;
+
+
+
+//-----------Commonly Used Ponters------//
+var $powerButton = $('#powerButton');
+var $nameBar = $('.switchTurns');
+var $wordGrid = $(".wordGrid");
+
+//----------Start Game Function-----------//
+$powerButton.on("mouseup", revealGameBoard);
+
+function revealGameBoard() {
+  $powerButton.addClass("hidden");
+  $nameBar.removeClass("hidden");
+  $wordGrid.removeClass("hidden");
+  toggleFullScreen();
+}
+
+
+
+function toggleFullScreen() {
+  if ((document.fullScreenElement && document.fullScreenElement !== null) ||
+      (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+    if (document.documentElement.requestFullScreen) {
+      document.documentElement.requestFullScreen();
+    } else if (document.documentElement.mozRequestFullScreen) {
+      document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullScreen) {
+      document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+    }
+  } else {
+    if (document.cancelFullScreen) {
+      document.cancelFullScreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitCancelFullScreen) {
+      document.webkitCancelFullScreen();
+    }
+  }
+}
+
+
 
 //should scale based on game size??
 var CardAssignments = function() {
@@ -32,7 +75,6 @@ $.getJSON("assets/word_lists/original.json", function(data) {
 
   var wordsInGame = findWordsUsedThisGame(data.words, NUM_WORDS_USED_THIS_GAME);
 
-  var $wordGrid = $(".wordGrid");
 
   wordsInGame.forEach(function(word, index) {
 
@@ -72,7 +114,6 @@ function assignColors(gameSize) {
   }
 
   //+++++++++++MODE SELECTION+++++++++++++++
-  var $nameBar = $('.switchTurns');
   var spyMasterOn = false;
   var toggleTurnTimer;
 

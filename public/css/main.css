@@ -81,6 +81,24 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+
+/* ============================
+  Full Screen Defaults
+  =============================*/
+
+:fullscreen {
+  background-color: black;
+}
+
+:-webkit-full-screen {
+  background-color: black;
+}
+
+:-moz-full-screen {
+  background-color: black;
+}
+
+
 @font-face {
   font-family: digital;
   src: url(../assets/digital-7.ttf);
@@ -103,6 +121,17 @@ body {
 
 header {
   padding: .5vw;
+}
+
+button#powerButton {
+  background-color: transparent;
+  color: #5fd44c;
+  border: none;
+  outline: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 300%;
 }
 
 button.switchTurns {
@@ -211,15 +240,6 @@ h1 {
 .cardType_bystander.chosen {
   background-color: rgba(95, 212, 51, .2);
 }
-
-
-
-
-
-
-
-
-
 
 
 /* ==========================================================================
