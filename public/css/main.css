@@ -112,15 +112,10 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-
   background-color: black;
   font-family: digital;
   width: 100%;
   min-height: 100%;
-}
-
-header {
-  padding: .5vw;
 }
 
 button#powerButton {
@@ -134,9 +129,11 @@ button#powerButton {
   font-size: 300%;
 }
 
+
 button.switchTurns {
+  margin: 2vw auto;
+  padding: 3vw;
   height: 3.5vw;
-  margin: 0 auto;
   line-height: 0;
   display: block;
   background-color: transparent;
@@ -159,6 +156,7 @@ h1 {
 }
 
 .wordGrid {
+  margin-top: 6vw;
   padding: 0;
   height: 0;
   opacity: 0;
