@@ -7,7 +7,7 @@ var NUM_WORDS_USED_THIS_GAME = 25;
 
 //-----------Commonly Used Ponters------//
 var $powerButton = $('#powerButton');
-var $nameBar = $('.switchTurns');
+var $titleBar = $('.titleBar');
 var $wordGrid = $(".wordGrid");
 
 //----------Start Game Function-----------//
@@ -15,7 +15,7 @@ $powerButton.on("mouseup", revealGameBoard);
 
 function revealGameBoard() {
   $powerButton.addClass("hidden");
-  $nameBar.removeClass("hidden");
+  $titleBar.removeClass("hidden");
   $wordGrid.removeClass("hidden");
   toggleFullScreen();
 }
@@ -117,8 +117,8 @@ function assignColors(gameSize) {
   var spyMasterOn = false;
   var toggleTurnTimer;
 
-  $nameBar.on('mousedown touchstart', startModeChangeTimer);
-  $nameBar.on('mouseup touchend', stopModeChangeTimer);
+  $titleBar.on('mousedown touchstart', startModeChangeTimer);
+  $titleBar.on('mouseup touchend', stopModeChangeTimer);
 
 
 
